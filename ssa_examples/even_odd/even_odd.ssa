@@ -1,0 +1,31 @@
+datatype list_0 = nil_0 | ::_0 of (list_0, word32)
+
+val global_0: word32 = 0x0:w32
+val global_t: bool = con true
+val global_f: bool = con false
+
+block L0 (b: bool,
+          zs_0: list_0)
+  case b of
+    true => L1 (zs_0) | false => L5 (zs_0)
+block L1 (zs_1: list_0)
+  goto L2(zs_0)
+block L2 (xs_0: list_0)
+  case xs_0 of
+    nil_0 => L3 | ::_0 => L4
+block L3 ()
+  goto L9 (global_t)
+block L4 (xs_1: list_0,
+         x: word32)
+  goto L6 (xs_1)
+block L5 (ys_0: list_0)
+  goto L6 (ys_0)
+block L6 (ys_1: list_0)
+  case ys_1 of
+    nil_0 => L8 | ::_0 => L7
+block L7 (ys_2: list_0, y: word32)
+  goto L2 (ys_2)
+block L8 ()
+  goto L9 (global_f)
+block L9 (r: bool)
+  return r

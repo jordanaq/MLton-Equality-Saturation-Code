@@ -1,0 +1,24 @@
+fun factorial_1 (x0: word32):
+  {returns = Some (word32), raises = some (exn_0)} =
+L0 ()
+  block L0 ()
+    case x0 of
+      0x0:w32 => L1 | _ => L2
+  block L1 ()
+    return 0x1:w32
+  block L2 ()
+    val x1: word32 = prim Word32_sub (x0, 0x1:w32)
+    val b0: bool = prim WordS32_subCheckP (x0, 0x1:w32)
+    case b0 of
+      true => L3 | false => L4
+  block L3 ()
+    raise (con Overflow_1)
+  block L4 ()
+    call L5 (factorial_1 (x1)) handle _ => raise
+  block L5 (x2: word32)
+    val x3: word32 = prim WordS32_mul (x2, x0)
+    val b1: bool = prim WordS32_mulCheckP (x2, x0)
+    case b1 of
+      true => L3 | false => L6
+  block L6 ()
+    return x3
