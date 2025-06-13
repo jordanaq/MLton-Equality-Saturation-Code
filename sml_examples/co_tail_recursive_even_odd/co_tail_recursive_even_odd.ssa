@@ -1,0 +1,481 @@
+(* MLton 20210117 on-20210117-release *)
+
+
+(* Datatypes: *)
+datatype list_0 = ::_0 of (list_0, (word8, word8) tuple) | nil_1
+datatype list_1 = nil_0 | ::_2 of (list_1)
+datatype list_2 = dummy_0
+datatype list_3 = nil_2 | ::_1 of (list_3, (word8) vector)
+datatype list_4 = nil_3
+datatype bool = true | false
+
+
+(* Globals: *)
+val global_0: (word8) vector = "unhandled exception: "
+val global_1: (word8) vector = "Overflow"
+val global_2: (word8) vector = "\n"
+val global_3: (word8) vector = "unhandled exception in Basis Library"
+val global_4: word32 = 0x0:w32
+val global_5: word32 = 0x1:w32
+val global_6: word64 = 0x0:w64
+val global_7: list_1 = con nil_0
+val global_38: list_1 = global_7 (*con nil_0*)
+val global_8: word64 = 0x1:w64
+val global_9: word64 = 0x4000000000000000:w64
+val global_10: word64 = 0x7FFFFFFF:w64
+val global_11: word64 = 0x5:w64
+val global_12: word8 = 0x0:w8
+val global_13: word64 = 0x100:w64
+val global_14: word8 = 0x30:w8
+val global_15: word8 = 0x39:w8
+val global_44: (word8, word8) tuple =
+  (global_15 (*0x39:w8*), global_14 (*0x30:w8*))
+val global_16: word32 = 0xA:w32
+val global_17: word8 = 0x66:w8
+val global_18: word8 = 0x61:w8
+val global_45: (word8, word8) tuple =
+  (global_17 (*0x66:w8*), global_18 (*0x61:w8*))
+val global_24: (word8, word8) tuple = global_45
+val global_19: word8 = 0x46:w8
+val global_20: word8 = 0x41:w8
+val global_46: (word8, word8) tuple =
+  (global_19 (*0x46:w8*), global_20 (*0x41:w8*))
+val global_22: (word8, word8) tuple = global_46
+val global_21: list_0 = con nil_1
+val global_23: list_0 = con ::_0 (global_21 (*con nil_1*), global_22)
+val global_25: list_0 = con ::_0 (global_23 (*con ::_0 ( ... l_22)*), global_24)
+val global_26: word32 = 0x100:w32
+val global_27: (word8) vector = "MLton.Exit.halt"
+val global_28: word64 = 0x10:w64
+val global_29: (word8) vector = "0123456789ABCDEF"
+val global_30: word8 = 0x7E:w8
+val global_31: (word8) vector = "): "
+val global_32: (word8) vector = "exit must have 0 <= status < 256"
+val global_33: list_3 = con nil_2
+val global_34: list_3 =
+  con ::_1 (global_33 (*con nil_2*), global_32 (*"exit must ...  256"*))
+val global_35: (word8) vector = "MLton.Exit.exit("
+val global_36: (word8) vector = "Top-level suffix raised exception.\n"
+val global_37: list_4 = con nil_3
+val global_39: list_1 = con ::_2 (global_38)
+val global_40: bool = con true
+val global_41: bool = con false
+val global_42: list_3 =
+  con ::_1 (global_34 (*con ::_1 ( ... l_32)*), global_31 (*"): "*))
+val global_43: list_2 = con dummy_0
+val zeroArr_0: (word8) array = prim Array_array[word8] ()
+
+
+(* Functions: *)
+fun noinline main_0 (): {returns = None, raises = None} = L_0 ()
+  block L_0 ()
+    goto loop_0 (global_39 (*con ::_2 (global_38)*),
+                 global_8 (*0x1:w64*),
+                 global_9 (*0x40000000 ... 0:w64*))
+  block loop_0 (x_2: list_1, x_1: word64, x_0: word64)
+    val x_3: bool = prim Word64_equal (x_0, global_6 (*0x0:w64*))
+    case x_3 of
+      true => L_2 | false => L_1
+  block L_2 ()
+    case x_2 of
+      nil_0 => L_3 | ::_2 => loop_1
+  block L_3 ()
+    val messagers_0: (list_2) ref =
+      prim Ref_ref[list_2] (global_43 (*con dummy_0*))
+    goto loop_2 (global_6 (*0x0:w64*))
+  block loop_2 (x_4: word64)
+    val x_5: bool = prim WordS64_lt (x_4, global_13 (*0x100:w64*))
+    case x_5 of
+      true => L_5 | false => L_4
+  block L_5 ()
+    val x_6: word64 = prim Word64_add (x_4, global_8 (*0x1:w64*))
+    goto loop_2 (x_6)
+  block L_4 ()
+    goto loop_3 (global_6 (*0x0:w64*))
+  block loop_3 (x_7: word64)
+    val x_8: bool = prim WordS64_lt (x_7, global_13 (*0x100:w64*))
+    case x_8 of
+      true => L_7 | false => L_6
+  block L_7 ()
+    val x_9: word64 = prim Word64_add (x_7, global_8 (*0x1:w64*))
+    goto loop_3 (x_9)
+  block L_6 ()
+    goto loop_4 (global_6 (*0x0:w64*))
+  block loop_4 (x_10: word64)
+    val x_11: bool = prim WordS64_lt (x_10, global_13 (*0x100:w64*))
+    case x_11 of
+      true => L_9 | false => L_8
+  block L_9 ()
+    val x_12: word64 = prim Word64_add (x_10, global_8 (*0x1:w64*))
+    goto loop_4 (x_12)
+  block L_8 ()
+    goto loop_5 (global_6 (*0x0:w64*))
+  block loop_5 (x_13: word64)
+    val x_14: bool = prim WordS64_lt (x_13, global_13 (*0x100:w64*))
+    case x_14 of
+      true => L_11 | false => L_10
+  block L_11 ()
+    val x_15: word8 = prim WordS64_extdToWord8 (x_13)
+    goto L_12 (global_25 (*con ::_0 ( ... l_24)*), global_44)
+  block L_12 (x_17: list_0, x_16: (word8, word8) tuple)
+    val cmax_0: word8 = #0 (x_16)
+    val cmin_0: word8 = #1 (x_16)
+    val x_18: bool = prim WordU8_lt (x_15, cmin_0)
+    case x_18 of
+      true => L_14 | false => L_13
+  block L_14 ()
+    case x_17 of
+      nil_1 => L_15 | ::_0 => L_12
+  block L_15 ()
+    val x_19: word64 = prim Word64_add (x_13, global_8 (*0x1:w64*))
+    goto loop_5 (x_19)
+  block L_13 ()
+    val x_20: bool = prim WordU8_lt (cmax_0, x_15)
+    case x_20 of
+      true => L_14 | false => L_15
+  block L_10 ()
+    goto loop_6 (global_6 (*0x0:w64*))
+  block loop_6 (x_21: word64)
+    val x_22: bool = prim WordS64_lt (x_21, global_13 (*0x100:w64*))
+    case x_22 of
+      true => L_17 | false => L_16
+  block L_17 ()
+    val x_23: word64 = prim Word64_add (x_21, global_8 (*0x1:w64*))
+    goto loop_6 (x_23)
+  block L_16 ()
+    val x_25: word64 = 0x21:w64
+    val x_24: (word8) array = prim Array_alloc[word8] (x_25)
+    goto loop_7 (global_6 (*0x0:w64*))
+  block loop_7 (x_26: word64)
+    val x_27: bool = prim WordS64_lt (x_26, x_25)
+    case x_27 of
+      true => L_19 | false => L_18
+  block L_19 ()
+    val _: unit = prim Array_update[word8] (x_24, x_26, global_12 (*0x0:w8*))
+    val x_28: word64 = prim Word64_add (x_26, global_8 (*0x1:w64*))
+    goto loop_7 (x_28)
+  block L_18 ()
+    val x_31: (bool) ref = prim Ref_ref[bool] (global_41 (*con false*))
+    val x_30: word64 = 0x41:w64
+    val x_29: (word8) array = prim Array_alloc[word8] (x_30)
+    goto loop_8 (global_6 (*0x0:w64*))
+  block loop_8 (x_32: word64)
+    val x_33: bool = prim WordS64_lt (x_32, x_30)
+    case x_33 of
+      true => L_21 | false => L_20
+  block L_21 ()
+    val _: unit = prim Array_update[word8] (x_29, x_32, global_12 (*0x0:w8*))
+    val x_34: word64 = prim Word64_add (x_32, global_8 (*0x1:w64*))
+    goto loop_8 (x_34)
+  block L_20 ()
+    goto loop_9 (global_6 (*0x0:w64*))
+  block loop_9 (x_35: word64)
+    val x_36: bool = prim WordS64_lt (x_35, global_8 (*0x1:w64*))
+    case x_36 of
+      true => L_23 | false => L_22
+  block L_23 ()
+    val x_37: word64 = prim Word64_add (x_35, global_8 (*0x1:w64*))
+    goto loop_9 (x_37)
+  block L_22 ()
+    val x_40: list_2 = con dummy_0
+    val _: unit = prim Ref_assign[list_2] (messagers_0, x_40)
+    val x_39: list_2 = con dummy_0
+    val _: unit = prim Ref_assign[list_2] (messagers_0, x_39)
+    val x_38: list_2 = con dummy_0
+    val _: unit = prim Ref_assign[list_2] (messagers_0, x_38)
+    val exiting_0: (bool) ref = prim Ref_ref[bool] (global_41 (*con false*))
+    call L_24 (exit_0 (global_4 (*0x0:w32*), x_24, x_31, exiting_0)) handle _ => L_25
+  block L_24 ()
+    bug
+  block L_25 ()
+    val _: unit =
+      prim CFunction {args = ((word8) vector),
+                      convention = cdecl,
+                      inline = false,
+                      kind = Impure,
+                      prototype = {args = (Objptr), res = None},
+                      return = unit,
+                      symbolScope = private,
+                      target = Stdio_print} (global_36 (*"Top-level ... n.\n"*))
+    val _: unit = prim MLton_halt (global_5 (*0x1:w32*))
+    val _: unit = prim MLton_bug (global_27 (*"MLton.Exit.halt"*))
+    bug
+  block loop_1 (x_41: list_1)
+    case x_41 of
+      nil_0 => L_3 | ::_2 => loop_1
+  block L_1 ()
+    val x_43: word64 = prim Word64_add (x_1, global_8 (*0x1:w64*))
+    val x_42: bool = prim WordS64_addCheckP (x_1, global_8 (*0x1:w64*))
+    case x_42 of
+      true => L_27 | false => L_26
+  block L_27 ()
+    val _: unit =
+      prim CFunction {args = ((word8) vector),
+                      convention = cdecl,
+                      inline = false,
+                      kind = Impure,
+                      prototype = {args = (Objptr), res = None},
+                      return = unit,
+                      symbolScope = private,
+                      target = Stdio_print} (global_0 (*"unhandled ... on: "*))
+    val _: unit =
+      prim CFunction {args = ((word8) vector),
+                      convention = cdecl,
+                      inline = false,
+                      kind = Impure,
+                      prototype = {args = (Objptr), res = None},
+                      return = unit,
+                      symbolScope = private,
+                      target = Stdio_print} (global_1 (*"Overflow"*))
+    val _: unit =
+      prim CFunction {args = ((word8) vector),
+                      convention = cdecl,
+                      inline = false,
+                      kind = Impure,
+                      prototype = {args = (Objptr), res = None},
+                      return = unit,
+                      symbolScope = private,
+                      target = Stdio_print} (global_2 (*"\n"*))
+    val _: unit = prim MLton_bug (global_3 (*"unhandled ... rary"*))
+    bug
+  block L_26 ()
+    val x_44: list_1 = con ::_2 (x_2)
+    goto loop_0 (x_44, x_43, global_6 (*0x0:w64*))
+fun exit_0 (x_48: word32,
+            x_47: (word8) array,
+            x_46: (bool) ref,
+            x_45: (bool) ref):
+  {returns = None, raises = Some ()} =
+L_28 ()
+  block L_28 ()
+    val x_49: bool = prim Ref_deref[bool] (x_45)
+    case x_49 of
+      true => L_30 | false => L_29
+  block L_30 ()
+    raise ()
+  block L_29 ()
+    val _: unit = prim Ref_assign[bool] (x_45, global_40 (*con true*))
+    val x_50: bool = prim WordS32_lt (x_48, global_4 (*0x0:w32*))
+    case x_50 of
+      true => L_32 | false => L_31
+  block L_32 ()
+    val _: unit = prim Thread_atomicBegin ()
+    val x_51: bool = prim Ref_deref[bool] (x_46)
+    case x_51 of
+      true => L_34 | false => L_33
+  block L_34 ()
+    val x_53: word32 = prim Thread_atomicState ()
+    val x_52: bool = prim Word32_equal (x_53, global_4 (*0x0:w32*))
+    case x_52 of
+      true => L_36 | false => L_35
+  block L_36 ()
+    raise ()
+  block L_35 ()
+    val _: unit = prim Thread_atomicEnd ()
+    val x_55: word64 = 0x21:w64
+    val x_54: (word8) array = prim Array_alloc[word8] (x_55)
+    goto loop_10 (global_6 (*0x0:w64*))
+  block loop_10 (x_56: word64)
+    val x_57: bool = prim WordS64_lt (x_56, x_55)
+    case x_57 of
+      true => L_38 | false => L_37
+  block L_38 ()
+    val _: unit = prim Array_update[word8] (x_54, x_56, global_12 (*0x0:w8*))
+    val x_58: word64 = prim Word64_add (x_56, global_8 (*0x1:w64*))
+    goto loop_10 (x_58)
+  block L_37 ()
+    case x_50 of
+      true => L_40 | false => L_39
+  block L_40 ()
+    goto L_41 (x_48, x_54)
+  block L_41 (x_60: word32, x_59: (word8) array)
+    val x_61: word32 = 0x20:w32
+    goto loop_11 (x_61, x_60)
+  block loop_11 (x_63: word32, x_62: word32)
+    val x_67: word32 = prim WordS32_rem (x_62, global_16 (*0xA:w32*))
+    val x_66: word32 = prim Word32_neg (x_67)
+    val x_65: word64 = prim WordS32_extdToWord64 (x_66)
+    val x_64: bool = prim WordU64_lt (x_65, global_28 (*0x10:w64*))
+    case x_64 of
+      true => L_43 | false => L_42
+  block L_43 ()
+    val x_71: word8 =
+      prim Vector_sub[word8] (global_29 (*"0123456789ABCDEF"*), x_65)
+    val x_69: word64 = prim Array_length[word8] (x_59)
+    val x_70: word64 = prim WordS32_extdToWord64 (x_63)
+    val x_68: bool = prim WordU64_lt (x_70, x_69)
+    case x_68 of
+      true => L_44 | false => L_42
+  block L_44 ()
+    val _: unit = prim Array_update[word8] (x_59, x_70, x_71)
+    val x_73: word32 = prim WordS32_quot (x_62, global_16 (*0xA:w32*))
+    val x_72: bool = prim Word32_equal (x_73, global_4 (*0x0:w32*))
+    case x_72 of
+      true => L_46 | false => L_45
+  block L_46 ()
+    case x_50 of
+      true => L_48 | false => L_47
+  block L_48 ()
+    val x_75: word32 = prim Word32_sub (x_63, global_5 (*0x1:w32*))
+    val x_74: bool = prim WordS32_subCheckP (x_63, global_5 (*0x1:w32*))
+    case x_74 of
+      true => L_42 | false => L_49
+  block L_42 ()
+    case x_51 of
+      true => L_51 | false => L_50
+  block L_51 ()
+    raise ()
+  block L_50 ()
+    val _: unit = prim Ref_assign[bool] (x_46, global_41 (*con false*))
+    raise ()
+  block L_49 ()
+    val x_77: word64 = prim WordS32_extdToWord64 (x_75)
+    val x_76: bool = prim WordU64_lt (x_77, x_69)
+    case x_76 of
+      true => L_52 | false => L_42
+  block L_52 ()
+    val _: unit = prim Array_update[word8] (x_59, x_77, global_30 (*0x7E:w8*))
+    goto L_53 (x_75)
+  block L_53 (x_78: word32)
+    val x_80: word64 = prim WordS32_extdToWord64 (x_78)
+    val x_79: bool = prim WordU64_lt (x_69, x_80)
+    case x_79 of
+      true => L_42 | false => L_54
+  block L_54 ()
+    val x_81: word64 = prim Word64_sub (x_69, x_80)
+    val isZero_0: bool = prim Word64_equal (global_6 (*0x0:w64*), x_81)
+    case isZero_0 of
+      true => L_zeroLen_0 | false => L_nonZeroLen_0
+  block L_zeroLen_0 ()
+    goto L_join_0 (zeroArr_0)
+  block L_join_0 (x_82: (word8) array)
+    val x_83: bool = prim WordS64_lt (x_81, global_11 (*0x5:w64*))
+    case x_83 of
+      true => L_56 | false => L_55
+  block L_56 ()
+    val x_84: word64 = prim Word64_sub (x_81, global_8 (*0x1:w64*))
+    goto loop_12 (global_6 (*0x0:w64*))
+  block loop_12 (x_85: word64)
+    val x_86: bool = prim WordS64_lt (x_84, x_85)
+    case x_86 of
+      true => L_58 | false => L_57
+  block L_58 ()
+    val x_87: (word8) vector = prim Array_toVector[word8] (x_82)
+    case x_51 of
+      true => L_60 | false => L_59
+  block L_60 ()
+    val x_88: list_3 = con ::_1 (global_42 (*con ::_1 ( ... l_31)*), x_87)
+    goto L_61 (x_88, global_35 (*"MLton.Exit.exit("*), global_6 (*0x0:w64*))
+  block L_61 (x_91: list_3, x_90: (word8) vector, x_89: word64)
+    val x_93: word64 = prim Vector_length[word8] (x_90)
+    val x_94: word64 = prim Word64_add (x_93, x_89)
+    val x_92: bool = prim WordS64_addCheckP (x_93, x_89)
+    case x_92 of
+      true => L_63 | false => L_62
+  block L_63 ()
+    raise ()
+  block L_62 ()
+    case x_91 of
+      nil_2 => L_65 | ::_1 => L_64
+  block L_65 ()
+    val x_95: bool = prim WordU64_lt (global_10 (*0x7FFFFFFF:w64*), x_94)
+    case x_95 of
+      true => L_67 | false => L_66
+  block L_67 ()
+    raise ()
+  block L_66 ()
+    val x_96: (word8) array = prim Array_alloc[word8] (x_94)
+    goto L_68 (x_88, global_35 (*"MLton.Exit.exit("*), global_6 (*0x0:w64*))
+  block L_68 (x_99: list_3, x_98: (word8) vector, x_97: word64)
+    val x_101: word64 = prim Vector_length[word8] (x_98)
+    val x_100: bool = prim WordS64_lt (x_101, global_11 (*0x5:w64*))
+    case x_100 of
+      true => L_70 | false => L_69
+  block L_70 ()
+    val x_102: word64 = prim Word64_sub (x_101, global_8 (*0x1:w64*))
+    goto loop_13 (global_6 (*0x0:w64*))
+  block loop_13 (x_103: word64)
+    val x_104: bool = prim WordS64_lt (x_102, x_103)
+    case x_104 of
+      true => L_72 | false => L_71
+  block L_72 ()
+    val x_105: word64 = prim Word64_add (x_101, x_97)
+    case x_99 of
+      nil_2 => L_74 | ::_1 => L_73
+  block L_74 ()
+    raise ()
+  block L_73 (x_107: list_3, x_106: (word8) vector)
+    goto L_68 (x_107, x_106, x_105)
+  block L_71 ()
+    val x_110: word64 = prim Word64_add (x_103, x_97)
+    val x_109: word8 = prim Vector_sub[word8] (x_98, x_103)
+    val _: unit = prim Array_update[word8] (x_96, x_110, x_109)
+    val x_108: word64 = prim Word64_add (x_103, global_8 (*0x1:w64*))
+    goto loop_13 (x_108)
+  block L_69 ()
+    val _: unit =
+      prim Array_copyVector[word8] (x_96,
+                                    x_97,
+                                    x_98,
+                                    global_6 (*0x0:w64*),
+                                    x_101)
+    goto L_72 ()
+  block L_64 (x_112: list_3, x_111: (word8) vector)
+    goto L_61 (x_112, x_111, x_94)
+  block L_59 ()
+    val _: unit = prim Ref_assign[bool] (x_46, global_41 (*con false*))
+    goto L_60 ()
+  block L_57 ()
+    val x_115: word64 = prim Word64_add (x_85, x_80)
+    val x_114: word8 = prim Array_sub[word8] (x_59, x_115)
+    val _: unit = prim Array_update[word8] (x_82, x_85, x_114)
+    val x_113: word64 = prim Word64_add (x_85, global_8 (*0x1:w64*))
+    goto loop_12 (x_113)
+  block L_55 ()
+    val _: unit =
+      prim Array_copyArray[word8] (x_82, global_6 (*0x0:w64*), x_59, x_80, x_81)
+    goto L_58 ()
+  block L_nonZeroLen_0 ()
+    val x_116: (word8) array = prim Array_alloc[word8] (x_81)
+    goto L_join_0 (x_116)
+  block L_47 ()
+    goto L_53 (x_63)
+  block L_45 ()
+    val x_118: word32 = prim Word32_sub (x_63, global_5 (*0x1:w32*))
+    val x_117: bool = prim WordS32_subCheckP (x_63, global_5 (*0x1:w32*))
+    case x_117 of
+      true => L_42 | false => L_75
+  block L_75 ()
+    goto loop_11 (x_118, x_73)
+  block L_39 ()
+    goto L_76 (x_54)
+  block L_76 (x_119: (word8) array)
+    val x_120: word32 = prim Word32_neg (x_48)
+    goto L_41 (x_120, x_119)
+  block L_33 ()
+    val _: unit = prim Ref_assign[bool] (x_46, global_40 (*con true*))
+    val x_122: word32 = prim Thread_atomicState ()
+    val x_121: bool = prim Word32_equal (x_122, global_4 (*0x0:w32*))
+    case x_121 of
+      true => L_78 | false => L_77
+  block L_78 ()
+    raise ()
+  block L_77 ()
+    val _: unit = prim Thread_atomicEnd ()
+    case x_50 of
+      true => L_80 | false => L_79
+  block L_80 ()
+    goto L_41 (x_48, x_47)
+  block L_79 ()
+    goto L_76 (x_47)
+  block L_31 ()
+    val x_123: bool = prim WordS32_lt (x_48, global_26 (*0x100:w32*))
+    case x_123 of
+      true => loop_14 | false => L_32
+  block loop_14 ()
+    val _: unit = prim MLton_halt (x_48)
+    val _: unit = prim MLton_bug (global_27 (*"MLton.Exit.halt"*))
+    bug
+
+
+(* Main: *) main_0
