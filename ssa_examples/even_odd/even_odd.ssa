@@ -6,10 +6,11 @@ val global_f: bool = con false
 
 block L0 (b: bool,
           zs_0: list_0)
+  val zs: list_0 = zs_0
   case b of
-    true => L1 (zs_0) | false => L5 (zs_0)
-block L1 (zs_1: list_0)
-  goto L2(zs_0)
+    true => L1 | false => L5
+block L1 ()
+  goto L2 zs_0
 block L2 (xs_0: list_0)
   case xs_0 of
     nil_0 => L3 | ::_0 => L4
@@ -18,8 +19,8 @@ block L3 ()
 block L4 (xs_1: list_0,
          x: word32)
   goto L6 (xs_1)
-block L5 (ys_0: list_0)
-  goto L6 (ys_0)
+block L5 ()
+  goto L6 (zs)
 block L6 (ys_1: list_0)
   case ys_1 of
     nil_0 => L8 | ::_0 => L7
