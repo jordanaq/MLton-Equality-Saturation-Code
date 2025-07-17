@@ -1,3 +1,4 @@
+val overflow: word32 = 0x4B:w32
 fun factorial_1 (x0: word32):
   {returns = Some (word32), raises = some (exn_0)} =
 L0 ()
@@ -12,7 +13,7 @@ L0 ()
     case b0 of
       true => L3 | false => L4
   block L3 ()
-    raise (con Overflow_1)
+    raise (overflow)
   block L4 ()
     call L5 (factorial_1 (x1)) handle _ => raise
   block L5 (x2: word32)
