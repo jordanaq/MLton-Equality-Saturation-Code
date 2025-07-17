@@ -1,0 +1,71 @@
+Sk {
+  datatypes = {
+    bool = false | true;
+  },
+  fun factorial_1 (r_x0: word32) = {
+    L0 () =
+      match (R_x0; R_lit0 => goto L1 (); => goto L2 ());
+
+    L1 () =
+      return (R_lit1);
+
+    L2 () =
+      match (R_b0; R_true => goto L3 (), R_false => goto L4 ());
+
+    L3 () =
+      raise (R_overflow);
+
+    L4 () =
+      call factorial_1 (R_x1) => L5; LRaise;
+
+    L5 (R_x2: word32) =
+      match (R_b1; R_true => goto L3 (), R_false => goto L6 ());
+
+    L6 () =
+      return (R_x3);
+  }
+} FPeg {
+  R_x0 = {
+    <param x0: word32>
+  }
+
+  R_lit0 = {
+    <lit 0x0: word32>
+  }
+
+  R_lit1 = {
+    <lit 0x1: word32>
+  }
+
+  R_b0 = {
+    <prim WordS32_subCheckP> (R_x0, R_lit1)
+  }
+
+  R_true = {
+    <cons true: bool>
+  }
+
+  R_false = {
+    <cons false: bool>
+  }
+
+  R_overflow {
+    <lit 0x4B: word32>
+  };
+
+  R_x1 = {
+    <prim Word32_sub> (R_x0, R_lit1)
+  }
+
+  R_x2 = {
+    <param x2: word32>
+  }
+
+  R_b1 = {
+    <prim WordS32_mulCheckP> (R_x2, R_x0)
+  }
+
+  R_x3 = {
+    <prim WordS32_mul> (R_x2, R_x0)
+  }
+}
