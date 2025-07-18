@@ -4,8 +4,9 @@ val global_0: word32 = 0x0:w32
 val global_t: bool = con true
 val global_f: bool = con false
 
-block L0 (b: bool,
-          zs_0: list_0)
+fun even_odd (b: bool, zs_0: list_0):
+  {returns = bool, raises = some (exn_0)} =
+block L0 ()
   val zs: list_0 = zs_0
   case b of
     true => L1 | false => L5

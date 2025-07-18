@@ -3,43 +3,62 @@ Sk {
     bool = false | true;
     list_0 = nil_0 | ::_0 of (list_0, word32);
   },
-  fun factorial_1 (r_x0: word32) = {
-    L0 () =
-      match (R_x0; R_lit0 => goto L1 (); => goto L2 ());
-
+  fun even_odd (zs: list_0) = {
     L1 () =
-      return (R_lit1);
+      goto L3 (R_zs)
 
-    L2 () =
-      match (R_b0; R_true => goto L3 (), R_false => goto L4 ());
-
-    L3 () =
-      raise (R_overflow);
+    L3 (xs_0: list_0) =
+      match (R_xs_0; R_nil => goto L4 (), R_list_0_1 => goto L5 (R_xs_0_0, R_xs_0_1));
 
     L4 () =
-      call factorial_1 (R_x1) => L5; LRaise;
+      goto L10 (R_true);
 
-    L5 (R_x2: word32) =
-      match (R_b1; R_true => goto L3 (), R_false => goto L6 ());
+    L5 (xs_1: list_0, x: word32) =
+      goto L7 (R_xs_1);
 
-    L6 () =
-      return (R_x3);
+    L7 (ys_1: list_0) =
+      match (R_ys_1; R_nil => goto L9 (), R_list_0_1 => goto L8 (R_ys_1_0, R_ys_1_1));
+
+    L8 (ys_2: list_0, y: word32) =
+      goto L3 (R_ys_2);
+
+    L9 () =
+      goto L10 (R_false);
+
+    L10 (b: bool) =
+      return (R_b);
   }
 } FPeg {
-  R_x0 = {
-    <param x0: word32>
+  R_zs = {
+    <param zs: list_0>
   }
 
-  R_lit0 = {
-    <lit 0x0: word32>
+  R_xs_0 = {
+    <param xs_0: list_0>
   }
 
-  R_lit1 = {
-    <lit 0x1: word32>
+  R_nil = {
+    <cons nil_0: list_0>
   }
 
-  R_b0 = {
-    <prim WordS32_subCheckP> (R_x0, R_lit1)
+  R_list_0_1 = {
+    <cons "::_0": list_0> (#0, #1),
+
+    #0 {
+      <param : list_0>
+    }
+
+    #1 {
+      <param : word 32>
+    }
+  }
+
+  R_xs_0_0 = {
+    <decons "::_0": list_0; 0> (R_xs_0)
+  }
+
+  R_xs_0_1 = {
+    <decons "::_0": list_0; 1> (R_xs_0)
   }
 
   R_true = {
@@ -50,24 +69,27 @@ Sk {
     <cons false: bool>
   }
 
-  R_overflow {
-    <lit 0x4B: word32>
-  };
-
-  R_x1 = {
-    <prim Word32_sub> (R_x0, R_lit1)
+  R_xs_1 = {
+    <param xs_1: list_0>
   }
 
-  R_x2 = {
-    <param x2: word32>
+  R_ys_1 {
+    <decons ys_1: list_0>
   }
 
-  R_b1 = {
-    <prim WordS32_mulCheckP> (R_x2, R_x0)
+  R_ys_1_0 = {
+    <decons "::_0": list_0; 0> (R_ys_1)
   }
 
-  R_x3 = {
-    <prim WordS32_mul> (R_x2, R_x0)
+  R_ys_1_1 = {
+    <decons "::_0": list_0; 1> (R_ys_1)
+  }
+
+  R_ys_2 = {
+    <param ys_2: list_0>
+  }
+
+  R_b = {
+    <param b: bool>
   }
 }
-
